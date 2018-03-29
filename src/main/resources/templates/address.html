@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>New Address</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <form action="/address">Please leave your message:<br/>
+            Name: <input  type='text' name='name' th:value="${vm.name}"/><br/>
+            Email: <input type='text' name='email' th:value="${vm.email}"/><br/>
+            Leave ur message Here:<br/>
+            <textarea type='text' name="message" class="form-control" rows="10" placeholder="Message" th:value="${vm.message}"/> 
+            <input type='submit' value='Submit'/><br/>
+        </form>
+    </body>
+</html>
