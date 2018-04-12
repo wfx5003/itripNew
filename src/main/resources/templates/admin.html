@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Address</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style type="text/css">
+		.table-bg thead th {
+			background-color: #f5fafe;
+		}
+		.table th, .table td {
+			padding: 8px;
+			line-height: 20px;
+		}
+		.table .text-c th, .table .text-c td {
+			text-align: center;
+		}
+		td {
+			font: 10pt Helvetica, Arial, sans-serif;
+			vertical-align: top;
+		}
+	</style>
+</head>
+<body>
+    <h1>Welcome to Admin Manage Panel</h1>
+  	<p style="display: inline;">User list:</p>
+	<button onclick="location.href='/adduser'">add new user</button>
+	<table class="table table-border table-bordered table-bg" style="margin-bottom: 20px;">
+		<thead>
+		<tr class="text-c">
+			<th width="40">ID</th>
+			<th width="150">username</th>
+			<th width="150">password</th>
+			<th width="150">op</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr class="text-c" th:each="user : ${users}">
+			<td th:text="${user.id}"></td>
+			<td th:text="${user.name}"></td>
+			<td th:text="${user.password}"></td>
+			<td class="active">
+				<button th:onclick="'javascript:del('+${user.id}+');'">delete</button>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<script>
+		function del(id) {
+		    location.href = '/deluser?id='+id
+		}
+	</script>
+</body>
+</html>

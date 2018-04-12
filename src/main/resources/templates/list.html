@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Database</title>
+</head>
+<body>
+	<table border='3' width='50%' height='50'>
+		<tr>
+			<th width='50px'><strong>Name</strong></th>
+			<th width='50px'><strong>Street</strong></th>
+			<th width='50px'><strong>State</strong></th>
+			<th width='50px'><strong>Zip</strong></th>
+		</tr>
+		<tr th:each="addr : ${vm}">
+			<td th:text="${addr.name}">1</td>
+			<td th:text="${addr.street}">1</td>
+			<td th:text="${addr.state}">1</td>
+			<td th:text="${addr.zip}">1</td>
+		</tr>
+	</table>
+</body>
+</html>
