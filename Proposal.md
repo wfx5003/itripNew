@@ -22,7 +22,7 @@ It is similar to the TripAdvisor or Yelp.
 
 The first checkpoint: finish build the frame structure for the project, like the homepage and UI. I will make itrip homepage, sign up and log in page, feedback page (the data will store in MySQL database) and other website page if necesseary. 
 
-The second checkpoint: I will create specific functionality, put Google map API and Yelp API into the project and build research function. I will let sign up and log in works. Change the website and using CSS template if possible.
+The second checkpoint: I will create specific functionality, put Google map API into the project and build research function. I will let sign up and log in works. Change the website and using CSS template if possible.
 
 The third checkpoint: Combine the functions and build guide system, create travel advice and show it to the user. Complete the CSS template.
 
