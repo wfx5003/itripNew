@@ -1,37 +1,39 @@
-## Welcome to GitHub Pages
+Proposal
 
-You can use the [editor on GitHub](https://github.com/wfx5003/itripNew/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+1.Project Description- What is the high-level idea of your project? This should be similar to your daily log submission (but could have changed).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+For the project, it is to build a tourism guiding and sharing system. On the website, people can decide and make their trip plan. Also, users can look for some advice for their trip. The system can analyze the information that users put in and organize their preference to build a customized tourism guide.
 
-### Markdown
+2.Project Design- lower-level description.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+a.What technologies will you use, how will they integrate?
 
-```markdown
-Syntax highlighted code block
+I will use Spring MVC to build the event listener and event handler, and SQL server management for storing the users' data and information. Also, I may use some existing data and API. Such as Google map API and Yelp API to get the city data and resturant information.
 
-# Header 1
-## Header 2
-### Header 3
+b. What are the project’s use cases?
 
-- Bulleted
-- List
+On the website, people can make their trip plan. Users can follow the existing guide. Also, users can look for some advice for their trip. The system can analyze the information that users put in and organize their preference to build a customized tourism guide. For example, the user input location:"New York", Food:"Asian Food", Interest:"Museum", the system can organize and make the tour guide match his preference. The website will provide the route for the trip as well.
 
-1. Numbered
-2. List
+c. Any other design docs that are necessary for me to understand your project
 
-**Bold** and _Italic_ and `Code` text
+It is similar to the TripAdvisor or Yelp.
 
-[Link](url) and ![Image](src)
-```
+3.Project Schedule- what will you have done at each checkpoint? What will the final project look like?
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+The first checkpoint: finish build the frame structure for the project, like the homepage and UI. I will make itrip homepage, sign up and log in page, feedback page (the data will store in MySQL database) and other website page if necesseary.
 
-### Jekyll Themes
+The second checkpoint: I will create specific functionality, put Google map API into the project and build research function. I will let sign up and log in works. Change the website and using CSS template if possible.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/wfx5003/itripNew/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+The third checkpoint: Combine the functions and build guide system, create travel advice and show it to the user. Complete the CSS template.
 
-### Support or Contact
+Final project: a complete tourism guiding and sharing system.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+4.Project Justification - why is your project interesting?
+
+a. Novelty - why is your project different than existing applications, and why should people use it?
+
+In my project, the user can share their own experience of the trip and post or ask their trip guide. The most difference to the existing applications is that my project can be customized and make everyone difference tourism guides for their own with the different preference. It is more user-friendly and users can have a unique experience for their trips.
+
+b. Complexity - why is this project a good showcase of your abilities?
+
+This project needs to integrate coding skills with Java Spring MVC, SQL data basement, HTML and web design which is a good showcase of my abilities with these.
