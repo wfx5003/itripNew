@@ -7,7 +7,7 @@ package itrip;
 
 /**
  *
- * @author joshu
+ * @author joshu}
  */
 import org.springframework.data.repository.CrudRepository;
 import java.util.List;
@@ -19,4 +19,6 @@ public interface UserRepository extends CrudRepository<UserModel, Integer> {
     public List<UserModel> findByName(String name);
     public List<UserModel> findAll();
 
+    public void save(AddressModel am);
 }
+

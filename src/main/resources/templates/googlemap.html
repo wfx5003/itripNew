@@ -15,16 +15,21 @@
 			font-size: 12px;
 		}
 		#map {
-			width: 800px;
+			width: 69%;
 			height: 800px;
 			float: left;
+			border-radius: 0.3em;
+			-webkit-border-radius: 0.3em;
+			-o-border-radius: 0.3em;
+			-moz-border-radius: 0.3em;
+			box-shadow: 0px 0px 15px #545454;
 		}
 		#search{
 			height: 60px;
 		}
 		#listing {
 			float: left;
-			width: 250px;
+			width: 264px;
 			height: 800px;
 			overflow: auto;
 			cursor: pointer;
@@ -34,7 +39,8 @@
 			float: left;
 			text-align: right;
 			width: 100px;
-			font-size: 14px;
+			font-size: 20px;
+			line-height: 12px;
 			padding: 4px;
 			z-index: 5;
 			background-color: #fff;
@@ -47,8 +53,7 @@
 			background-color: #fff;
 		}
 		#controls {
-			position: absolute;
-			left: 300px;
+			float: left;
 			width: 140px;
 			top: 0px;
 			z-index: 5;
@@ -87,81 +92,137 @@
 		.iw_table_icon {
 			text-align: right;
 		}
+		button{
+			margin-right: 11px;
+			background: #0091e6;
+			border: none;
+			outline: none;
+			padding: 6px 14px;
+			cursor: pointer;
+			color: #FFF;
+			font-size: 0.9em;
+			border-radius: .3em;
+			-webkit-border-radius: .3em;
+			-moz-border-radius: .3em;
+			-o-border-radius: .3em;
+			transition: 0.5s all;
+			-webkit-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+			-o-transition: 0.5s all;
+			font-weight: 600;
+			margin: 0 auto;
+		}
+		.content {
+			height: 100%;
+			width: 50%;
+			margin: 0 auto;
+		}
+		#search {
+			margin: 10px;
+			padding: 4% 0 0 10%;
+		}
+		#listing {
+			border-radius: 0.3em;
+			-webkit-border-radius: 0.3em;
+			-o-border-radius: 0.3em;
+			-moz-border-radius: 0.3em;
+			box-shadow: 0px 0px 15px #545454;
+		}
+		.collect {
+			font-size:12px;
+			background: #FFC107;
+		}
+		.collected {
+			background: #9E9E9E;
+		}
 	</style>
+	<script src="assets/js/jquery.min.js"></script>
 </head>
 
 <body>
-<div id="search">
-	<div id="findhotels">
-		Search:
+<div class="content">
+	<div id="search" style="margin: 10px">
+		<div id="findhotels">
+			Search:
+		</div>
+
+		<div id="locationField">
+			<input id="autocomplete" placeholder="Enter Place" type="text" />
+		</div>
+		<div id="select-type" style="margin-left: 10px;float: left;">
+			<select id="bound-type">
+				<option value="restaurant" selected="selected">restaurant</option>
+				<option value="lodging">lodging</option>
+				<option value="park">park</option>
+				<option value="shopping_mall">shopping_mall</option>
+				<option value="store">store</option>
+			</select>
+		</div>
+		<div id="controls" style="margin-left: 10px">
+			<select id="country">
+				<option value="all">All</option>
+				<option value="ch" selected="selected">China</option>
+				<option value="au">Australia</option>
+				<option value="br">Brazil</option>
+				<option value="ca">Canada</option>
+				<option value="fr">France</option>
+				<option value="de">Germany</option>
+				<option value="mx">Mexico</option>
+				<option value="nz">New Zealand</option>
+				<option value="it">Italy</option>
+				<option value="za">South Africa</option>
+				<option value="es">Spain</option>
+				<option value="pt">Portugal</option>
+				<option value="us">U.S.A.</option>
+				<option value="uk">United Kingdom</option>
+			</select>
+		</div>
+		<button onclick="search()" style="margin-left: 10px">submit</button>
+		<button onclick="location.href='/collection'" style="margin-left: 10px;background:green">my collections</button>
+                 <button onclick="location='index.html'" style="margin-left: 10px;background:purple">Homepage</button>
 	</div>
+	<div id="map"></div>
 
-	<div id="locationField">
-		<input id="autocomplete" placeholder="Enter Place" type="text" />
-	</div>
-
-	<div id="controls">
-		<select id="country">
-			<option value="all">All</option>
-			<option value="ch" selected="selected">China</option>
-			<option value="au">Australia</option>
-			<option value="br">Brazil</option>
-			<option value="ca">Canada</option>
-			<option value="fr">France</option>
-			<option value="de">Germany</option>
-			<option value="mx">Mexico</option>
-			<option value="nz">New Zealand</option>
-			<option value="it">Italy</option>
-			<option value="za">South Africa</option>
-			<option value="es">Spain</option>
-			<option value="pt">Portugal</option>
-			<option value="us">U.S.A.</option>
-			<option value="uk">United Kingdom</option>
-		</select>
-	</div>
-</div>
-
-<div id="map"></div>
-
-<div id="listing">
-	<table id="resultsTable">
-		<tbody id="results"></tbody>
-	</table>
-</div>
-
-<div style="display: none">
-	<div id="info-content">
-		<table>
-			<tr id="iw-url-row" class="iw_table_row">
-				<td id="iw-icon" class="iw_table_icon"></td>
-				<td id="iw-url"></td>
-			</tr>
-			<tr id="iw-address-row" class="iw_table_row">
-				<td class="iw_attribute_name">Address:</td>
-				<td id="iw-address"></td>
-			</tr>
-			<tr id="iw-phone-row" class="iw_table_row">
-				<td class="iw_attribute_name">Telephone:</td>
-				<td id="iw-phone"></td>
-			</tr>
-			<tr id="iw-rating-row" class="iw_table_row">
-				<td class="iw_attribute_name">Rating:</td>
-				<td id="iw-rating"></td>
-			</tr>
-			<tr id="iw-website-row" class="iw_table_row">
-				<td class="iw_attribute_name">Website:</td>
-				<td id="iw-website"></td>
-			</tr>
+	<div id="listing">
+		<table id="resultsTable">
+			<tbody id="results"></tbody>
 		</table>
 	</div>
-</div>
 
+	<div style="display: none">
+		<div id="info-content">
+			<table>
+				<tr id="iw-url-row" class="iw_table_row">
+					<td id="iw-icon" class="iw_table_icon"></td>
+					<td id="iw-url"></td>
+				</tr>
+				<tr id="iw-address-row" class="iw_table_row">
+					<td class="iw_attribute_name">Address:</td>
+					<td id="iw-address"></td>
+				</tr>
+				<tr id="iw-phone-row" class="iw_table_row">
+					<td class="iw_attribute_name">Telephone:</td>
+					<td id="iw-phone"></td>
+				</tr>
+				<tr id="iw-rating-row" class="iw_table_row">
+					<td class="iw_attribute_name">Rating:</td>
+					<td id="iw-rating"></td>
+				</tr>
+				<tr id="iw-website-row" class="iw_table_row">
+					<td class="iw_attribute_name">Website:</td>
+					<td id="iw-website"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
 <script>
     /*<![CDATA[*/
     var map, places, infoWindow;
     var markers = [];
     var autocomplete;
     var countryRestrict = {'country': 'cn'};
+    var type = 'restaurant';
     var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
     var hostnameRegexp = new RegExp('^https?://.+?/');
 
@@ -253,13 +314,13 @@
         // Add a DOM event listener to react when the user selects a country.
         document.getElementById('country').addEventListener(
             'change', setAutocompleteCountry);
+
     }
 
     // When the user selects a city, get the place details for the city and
     // zoom the map in on the city.
     function onPlaceChanged() {
         var place = autocomplete.getPlace();
-        console.log(place)
         if (place.geometry) {
             map.panTo(place.geometry.location);
             map.setZoom(15);
@@ -271,9 +332,13 @@
 
     // Search for hotels in the selected city, within the viewport of the map.
     function search() {
+        var type_select = document.getElementById('bound-type')
+		var index = type_select.selectedIndex
+		type = type_select.options[index].value
+
         var search = {
             bounds: map.getBounds(),
-            types: ["restaurant", "lodging"]
+            types: [type]
         };
 
         places.nearbySearch(search, function(results, status) {
@@ -347,15 +412,37 @@
 
         var iconTd = document.createElement('td');
         var nameTd = document.createElement('td');
+        var collectTd = document.createElement('td');
         var icon = document.createElement('img');
+        var addBtn = document.createElement('button');
         icon.src = markerIcon;
         icon.setAttribute('class', 'placeIcon');
         icon.setAttribute('className', 'placeIcon');
+        addBtn.setAttribute('class', 'collect');
+        addBtn.setAttribute('id', i);
+        addBtn.setAttribute('_value', result.name);
+        addBtn.appendChild(document.createTextNode('collect'))
+        addBtn.addEventListener('click',function(e){
+            var elementId = e.target.id, placeName;
+            var el = $('#'+elementId);
+            console.log(elementId)
+            if (el.hasClass('collected')) {
+				return false;
+			}
+			placeName = el.attr('_value')
+			console.log(placeName)
+			$.post('/addCollection',{name:placeName},function(res){
+                el.addClass('collected')
+				el.text('collected')
+			})
+		})
         var name = document.createTextNode(result.name);
         iconTd.appendChild(icon);
         nameTd.appendChild(name);
+        collectTd.appendChild(addBtn);
         tr.appendChild(iconTd);
         tr.appendChild(nameTd);
+        tr.appendChild(collectTd);
         results.appendChild(tr);
     }
 
@@ -431,6 +518,7 @@
     }
     /*]]>*/
 </script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpDEJwiUhyTL2mXyNV2P5qaxhr005jezY&amp;libraries=places&amp;callback=initMap" async="async" defer="defer"></script>
 </body>
 </html>

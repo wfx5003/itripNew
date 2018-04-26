@@ -1,25 +1,96 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>New Address</title>
+    <title>Login</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style>
+		.inset {
+			position: relative;
+			background: #fff;
+			padding: 2.5em;
+			border-radius: 0.3em;
+			-webkit-border-radius: 0.3em;
+			-o-border-radius: 0.3em;
+			-moz-border-radius: 0.3em;
+			box-shadow: 0px 0px 15px #545454;
+			width: 14%;
+			margin: 0 auto;
+		}
+		form{
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+			font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		}
+		form span {
+			display: block;
+			font-size: 1.0em;
+			color: #333;
+			font-weight: 400;
+		}
+		input[type="text"], input[type="password"] {
+			padding: 9px;
+			width: 93.4%;
+			font-size: 1.1em;
+			margin: 3px 0px 25px;
+			color: #666666;
+			background: #f0f0f0;
+			border: none;
+			font-weight: 400;
+			outline: none;
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;
+			-ms-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+			border-radius: 0.2em;
+			-webkit-border-radius: 0.2em;
+			-o-border-radius: 0.2em;
+			-moz-border-radius: 0.2em;
+		}
+		.submit {
+			margin-right: 11px;
+			background: #0091e6;
+			border: none;
+			outline: none;
+			padding: 8px 30px;
+			cursor: pointer;
+			color: #FFF;
+			font-size: 0.9em;
+			border-radius: .3em;
+			-webkit-border-radius: .3em;
+			-moz-border-radius: .3em;
+			-o-border-radius: .3em;
+			transition: 0.5s all;
+			-webkit-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+			-o-transition: 0.5s all;
+			font-weight: 600;
+			margin: 0 auto;
+		}
+	</style>
 </head>
 <body>
-    <h1>the backend Admin Login Page</h1>
-  <p>please input</p>
-    <form class="row" action="/adminlogin" method="post">
-			<div class="form-group col-md-6">
-				User Name: <input name="name" type="text" placeholder="Ur Name" class="form-control"/>
+<div style="margin-top: 10%;">
+	<div class="inset">
+		<form class="row" action="/adminlogin" method="post">
+			<div>
+				<h2>Weclcome to Admin Page</h2>
+				<span><label>User Name:</label></span>
+				<span><input name="name" type="text" placeholder="username" class="form-control"/></span>
 			</div>
-			<div class="form-group col-md-12">
-							</div>
-			<div class="form-group col-md-12">
-                            Password:<input name="password" type="password" placeholder="Ur password" class="form-control" />
-                            
+			<div>
+				<span><label>Password:</label></span>
+				<span><input name="password" type="password" placeholder="password" class="form-control" /></span>
 			</div>
-			<div class="form-group col-md-12">
-                            <input type='submit' value='Submit'/><br/>
+			<div class="sign" style="text-align: right">
+				<input type="submit" value="Login" class="submit" />
 			</div>
 		</form>
+	</div>
+</div>
 </body>
 </html>

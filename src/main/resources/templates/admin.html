@@ -18,32 +18,75 @@
 			font: 10pt Helvetica, Arial, sans-serif;
 			vertical-align: top;
 		}
+		.content{
+			width: 36%;
+			margin: 70px auto 0;
+			padding: 3%;
+			border-radius: 0.3em;
+			-webkit-border-radius: 0.3em;
+			-o-border-radius: 0.3em;
+			-moz-border-radius: 0.3em;
+			box-shadow: 0px 0px 15px #545454;
+		}
+		button{
+			margin-right: 11px;
+			border: none;
+			outline: none;
+			padding: 6px 14px;
+			cursor: pointer;
+			color: #FFF;
+			font-size: 0.9em;
+			border-radius: .3em;
+			-webkit-border-radius: .3em;
+			-moz-border-radius: .3em;
+			-o-border-radius: .3em;
+			transition: 0.5s all;
+			-webkit-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+			-o-transition: 0.5s all;
+			font-weight: 600;
+			margin: 0 auto;
+		}
+
+		.primary {
+			background: #0091e6;
+		}
+
+		.danger {
+			background: #e62a3f;
+		}
 	</style>
 </head>
 <body>
-    <h1>Welcome to Admin Manage Panel</h1>
-  	<p style="display: inline;">User list:</p>
-	<button onclick="location.href='/adduser'">add new user</button>
-	<table class="table table-border table-bordered table-bg" style="margin-bottom: 20px;">
-		<thead>
-		<tr class="text-c">
-			<th width="40">ID</th>
-			<th width="150">username</th>
-			<th width="150">password</th>
-			<th width="150">op</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr class="text-c" th:each="user : ${users}">
-			<td th:text="${user.id}"></td>
-			<td th:text="${user.name}"></td>
-			<td th:text="${user.password}"></td>
-			<td class="active">
-				<button th:onclick="'javascript:del('+${user.id}+');'">delete</button>
-			</td>
-		</tr>
-		</tbody>
-	</table>
+<div class="main">
+	<div class="content">
+		<h1>Welcome to Admin Manage Panel</h1>
+		<p style="display:inline-block;font-size: 21px;">User list:</p>
+		<button onclick="location.href='/adduser'" class='primary' style="margin-left: 10px;padding: 10px 14px;">add new user</button>
+		<table class="table table-border table-bordered table-bg" style="margin-bottom: 20px;width: 100%;">
+			<thead>
+			<tr class="text-c">
+				<th width="40">ID</th>
+				<th width="150">username</th>
+				<th width="150">password</th>
+				<th width="150">op</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr class="text-c" th:each="user : ${users}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.name}"></td>
+				<td th:text="${user.password}"></td>
+				<td class="active">
+					<button class='danger' th:onclick="'javascript:del('+${user.id}+');'">delete</button>
+				</td>
+			</tr>
+                        <button onclick="location='index.html'" style="margin-left: 10px;background:purple">Homepage</button>
+			</tbody>
+		</table>
+	</div>
+</div>
+
 	<script>
 		function del(id) {
 		    location.href = '/deluser?id='+id
