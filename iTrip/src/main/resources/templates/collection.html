@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Address</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style type="text/css">
+		.table-bg thead th {
+			background-color: #f5fafe;
+		}
+		.table th, .table td {
+			padding: 8px;
+			line-height: 20px;
+		}
+		.table .text-c th, .table .text-c td {
+			text-align: center;
+		}
+		td {
+			font: 10pt Helvetica, Arial, sans-serif;
+			vertical-align: top;
+		}
+		.content{
+			width: 36%;
+			margin: 70px auto 0;
+			padding: 3%;
+			border-radius: 0.3em;
+			-webkit-border-radius: 0.3em;
+			-o-border-radius: 0.3em;
+			-moz-border-radius: 0.3em;
+			box-shadow: 0px 0px 15px #545454;
+		}
+		button{
+			margin-right: 11px;
+			border: none;
+			outline: none;
+			padding: 6px 14px;
+			cursor: pointer;
+			color: #FFF;
+			font-size: 0.9em;
+			border-radius: .3em;
+			-webkit-border-radius: .3em;
+			-moz-border-radius: .3em;
+			-o-border-radius: .3em;
+			transition: 0.5s all;
+			-webkit-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+			-o-transition: 0.5s all;
+			font-weight: 600;
+			margin: 0 auto;
+		}
+
+		.primary {
+			background: #0091e6;
+		}
+
+		.danger {
+			background: #e62a3f;
+		}
+	</style>
+	<script src="assets/js/jquery.min.js"></script>
+</head>
+<body>
+<div class="main">
+	<div class="content">
+		<h1>Welcome to iTrip Collections</h1>
+		<p style="display:inline-block;font-size: 21px;">Collection list:</p>
+		<table class="table table-border table-bordered table-bg" style="margin-bottom: 20px;width: 100%;">
+			<thead>
+			<tr class="text-c">
+				<th width="40">ID</th>
+				<th width="150">location</th>
+				<th width="150">activity no.</th>
+				<th width="150">Plan</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr class="text-c" th:each="cl : ${collections}">
+				<td th:text="${cl.id}"></td>
+				<td th:text="${cl.name}"></td>
+				<td th:text="${cl.type}"></td>
+				<td class="active">
+					<select id="mark-type" th:onchange="'javascript:save('+${cl.id}+', this.value);'">
+						<option value="0" th:if="${cl.type==0}" selected="selected">nothing</option>
+						<option value="0" th:if="${cl.type!=0}">nothing</option>
+						<option value="1" th:if="${cl.type==1}" selected="selected">Breakfast</option>
+						<option value="1" th:if="${cl.type!=1}">Breakfast</option>
+						<option value="2" th:if="${cl.type==2}" selected="selected">Morning activity</option>
+						<option value="2" th:if="${cl.type!=2}">Morning activity</option>
+						<option value="3" th:if="${cl.type==3}" selected="selected">Lunch</option>
+						<option value="3" th:if="${cl.type!=3}">Lunch</option>
+						<option value="4" th:if="${cl.type==4}" selected="selected">Afternoon activity</option>
+						<option value="4" th:if="${cl.type!=4}">Afternoon activit</option>
+						<option value="5" th:if="${cl.type==5}" selected="selected">Dinner</option>
+						<option value="5" th:if="${cl.type!=5}">Dinner</option>
+					</select>
+					<button class='danger' th:onclick="'javascript:del('+${cl.id}+');'">delete</button>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+                <button onclick="location='index.html'" style="margin-left: 10px;background:purple">Homepage</button>
+                
+	</div>
+</div>
+
+	<script>
+        /*<![CDATA[*/
+		function save(id, val) {
+            location.href = '/savecollection?id='+id+'&type='+val
+		}
+
+
+		function del(id) {
+		    location.href = '/delcollection?id='+id
+		}
+        /*]]>*/
+	</script>
+</body>
+</html>
