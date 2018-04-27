@@ -8,11 +8,11 @@ For the project, it is to build a tourism guiding and sharing system. On the web
 
 a.What technologies will you use, how will they integrate?
 
-I will use Spring MVC to build the event listener and event handler, and SQL server management for storing the users' data and information. Also, I may use some existing data and API. Such as Google map API and Yelp API to get the city data and resturant information.
+I will use Spring MVC to build the event listener and event handler, and SQL server management for storing the users' data and information. Also, I may use some existing data and API. Such as Google map API to get the city data and resturant information.
 
 b. What are the project’s use cases?
 
-On the website, people can make their trip plan. Users can follow the existing guide. Also, users can look for some advice for their trip. The system can analyze the information that users put in and organize their preference to build a customized tourism guide. For example, the user input location:"New York", Food:"Asian Food", Interest:"Museum", the system can organize and make the tour guide match his preference. The website will provide the route for the trip as well.
+On the website, people can make their trip plan. Users can look for some advice for their trip. The system can analyze the information that users put in and organize their preference to build a customized tourism guide. For example, the user input location:"New York", Activity:"Shopping", the system can organize and make the tour guide match his preference. The website will provide the shooping mall around New York, and users can add them into their collections for review later.
 
 c. Any other design docs that are necessary for me to understand your project
 
@@ -24,9 +24,9 @@ The first checkpoint: finish build the frame structure for the project, like the
 
 The second checkpoint: I will create specific functionality, put Google map API into the project and build research function. I will let sign up and log in works. Change the website and using CSS template if possible.
 
-The third checkpoint: Combine the functions and build guide system, create travel advice and show it to the user. Complete the CSS template.
+The third checkpoint: Combine the functions and build collection system, add more options like "park","shopping mall" with the Google Map api. Create collection function which users can pick activities and add them into collection and they can review the plan later. After all complete the CSS template.
 
-Final project: a complete tourism guiding and sharing system.
+Final project: a complete tourism guiding which user can use for make their own plan and review the trip plan.
 
 4.Project Justification - why is your project interesting?
 
