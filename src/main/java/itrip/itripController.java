@@ -34,14 +34,6 @@ public class itripController {
     public String itriphomepage(Model model) {
         return "itriphomepage";
     }
-        @RequestMapping("/LookAround")
-    public String LookAround(Model model) {
-        return "LookAround";
-    }
-    @RequestMapping("/UrTrip")
-    public String UrTrip(Model model) {
-        return "UrTrip";
-    }
  
     @RequestMapping("/signup")
     public String signup(Model model) {
@@ -56,10 +48,6 @@ public class itripController {
         return "yelp";
     }
 
-    @RequestMapping("/diytrip")
-    public String diytrip(Model model) {
-        return "diytrip";
-    }
 
     @RequestMapping("/googlemap")
     public String googlemap(Model model, HttpSession session) {
